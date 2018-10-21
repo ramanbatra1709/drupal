@@ -8,11 +8,13 @@
 
 namespace Drupal\aargh\Controller;
 
+use Drupal\aargh\Services\AarghGenerator;
 use Symfony\Component\HttpFoundation\Response;
 
 class AarghController {
     public function aargh($num) {
-        $aargh = 'A'.str_repeat('a', $num).'gh';
+        $aarghGenerator = new AarghGenerator();
+        $aargh = $aarghGenerator->getAargh($num);
         return new Response($aargh);
     }
 }

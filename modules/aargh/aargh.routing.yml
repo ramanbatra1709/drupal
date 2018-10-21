@@ -1,5 +1,5 @@
 say_aargh:
-  path: /say_aargh
+  path: /say_aargh/{num}
   defaults:
     _controller: Drupal\aargh\Controller\AarghController::aargh
   requirements:

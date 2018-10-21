@@ -11,7 +11,8 @@ namespace Drupal\aargh\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 class AarghController {
-    public function aargh() {
-        return new Response('Aaaargh!');
+    public function aargh($num) {
+        $aargh = 'A'.str_repeat('a', $num);
+        return new Response($aargh);
     }
 }

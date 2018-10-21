@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AarghController {
     public function aargh($num) {
-        $aargh = 'A'.str_repeat('a', $num);
+        $aargh = 'A'.str_repeat('a', $num).'gh';
         return new Response($aargh);
     }
 }

@@ -1,0 +1,6 @@
+say_aargh:
+  path: /say_aargh
+  defaults:
+    _controller: Drupal\aargh\Controller\AarghController::aargh
+  requirements:
+    _permission: 'access content'

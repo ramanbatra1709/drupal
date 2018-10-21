@@ -9,8 +9,31 @@
 namespace Drupal\aargh\Services;
 
 
+use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
+
 class AarghGenerator    {
+
+    private $keyValueFactory;
+
+    public function __construct(KeyValueFactoryInterface $keyValueFactory)   {
+        $this->keyValueFactory = $keyValueFactory;
+    }
+
     public function getAargh($num) {
-        return 'A'.str_repeat('a', $num).'gh';
+        $key = 'aargh_'.$num;
+        $store = $this->keyValueFactory->get('aargh');
+
+        if ($store->has($key)) {
+            return $store->get($key);
+        }
+
+        // some long processing task
+        sleep(2);
+
+        // cache the long processed value
+        $string = 'A'.str_repeat('a', $num).'gh';
+        $store->set($key, $string);
+
+        return $string;
     }
 }

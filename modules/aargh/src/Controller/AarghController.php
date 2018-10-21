@@ -25,10 +25,7 @@ class AarghController extends ControllerBase {
     }
 
     public function aargh($num) {
-        $keyValueStore = $this->keyValue('aargh');
-        //$aargh = $this->aarghGenerator->getAargh($num);
-        //$keyValueStore->set('aargh_string', $aargh);
-        $aargh = $keyValueStore->get('aargh_string');
+        $aargh = $this->aarghGenerator->getAargh($num);
         $this->loggerFactoryService->get('default')
             ->debug($aargh);
         return new Response($aargh);

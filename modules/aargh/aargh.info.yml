@@ -1,0 +1,5 @@
+name: Aargh
+type: module
+description: "Aargh at you"
+package: Custom
+core: 8.x

@@ -28,7 +28,9 @@ class AarghController extends ControllerBase {
         $aargh = $this->aarghGenerator->getAargh($num);
         $this->loggerFactoryService->get('default')
             ->debug($aargh);
-        return new Response($aargh);
+        return [
+            '#title' => $aargh
+        ];
     }
 
     public static function create(ContainerInterface $container) {

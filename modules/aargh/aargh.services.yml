@@ -7,3 +7,8 @@ services:
     arguments:
       - '@keyvalue'
       - '%aargh.use_key_value_cache%'
+  aargh.my_listener:
+    class: Drupal\aargh\Services\MyEventSubscriber
+    arguments: []
+    tags:
+      - { name: event_subscriber  }

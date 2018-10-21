@@ -14,16 +14,18 @@ use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
 class AarghGenerator    {
 
     private $keyValueFactory;
+    private $useCache;
 
-    public function __construct(KeyValueFactoryInterface $keyValueFactory)   {
+    public function __construct(KeyValueFactoryInterface $keyValueFactory, $useCache)   {
         $this->keyValueFactory = $keyValueFactory;
+        $this->useCache = $useCache;
     }
 
     public function getAargh($num) {
         $key = 'aargh_'.$num;
         $store = $this->keyValueFactory->get('aargh');
 
-        if ($store->has($key)) {
+        if ($this->useCache && $store->has($key)) {
             return $store->get($key);
         }
 
@@ -32,7 +34,10 @@ class AarghGenerator    {
 
         // cache the long processed value
         $string = 'A'.str_repeat('a', $num).'rgh';
-        $store->set($key, $string);
+
+        if ($this->useCache) {
+            $store->set($key, $string);
+        }
 
         return $string;
     }

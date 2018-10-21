@@ -1,5 +1,9 @@
+parameters:
+  aargh.use_key_value_cache: true
+
 services:
   aargh.aargh_generator:
     class: Drupal\aargh\Services\AarghGenerator
     arguments:
       - '@keyvalue'
+      - '%aargh.use_key_value_cache%'

@@ -31,7 +31,7 @@ class AarghGenerator    {
         sleep(2);
 
         // cache the long processed value
-        $string = 'A'.str_repeat('a', $num).'gh';
+        $string = 'A'.str_repeat('a', $num).'rgh';
         $store->set($key, $string);
 
         return $string;

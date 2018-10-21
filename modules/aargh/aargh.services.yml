@@ -1,0 +1,3 @@
+services:
+  aargh.aargh_generator:
+    class: Drupal\aargh\Services\AarghGenerator

@@ -40,3 +40,6 @@ sites/simpletest
 
 # Ignore SimpleTest multi-site environment.
 # simpletest
+
+# Ignore PHPStorm .idea directory
+.idea/
